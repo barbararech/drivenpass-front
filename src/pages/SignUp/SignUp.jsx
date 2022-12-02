@@ -59,6 +59,7 @@ export default function SignUp() {
             type="password"
             fullWidth
             value={password}
+            placeholder={'No mínimo 10 caracteres'}
             onChange={(e) => setPassword(e.target.value)}
           />
           <Input
