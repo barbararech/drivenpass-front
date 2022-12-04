@@ -6,11 +6,11 @@ import {
 } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
-import { UserProvider } from './contexts/UserContext';
+import { UserProvider } from "./contexts/UserContext";
 
 import SignUp from "./pages/SignUp/SignUp";
 import SignIn from "./pages/SignIn/SignIn";
-// import Dashboard from "./pages/Dashboard";
+import Dashboard from "./pages/Dashboard/Dashboard";
 // import PasswordType from "./pages/PasswordType";
 // import PasswordData from "./pages/PasswordData";
 // import NewEntry from "./pages/NewEntry";
@@ -26,7 +26,7 @@ export default function App() {
           <Routes>
             <Route path="/sign-up" element={<SignUp />} />
             <Route path="/" element={<SignIn />} />
-            {/* <Route
+            <Route
               path="/dashboard"
               element={
                 <ProtectedRouteGuard>
@@ -34,10 +34,10 @@ export default function App() {
                 </ProtectedRouteGuard>
               }
             >
-              <Route path="passwordType" element={<PasswordType />} />
+              {/* <Route path="passwordType" element={<PasswordType />} />
               <Route path="passwordData" element={<PasswordData />} />
               <Route path="newEntry" element={<NewEntry />} /> */}
-            {/* </Route> */}
+            </Route>
           </Routes>
         </Router>
       </UserProvider>
@@ -45,12 +45,12 @@ export default function App() {
   );
 }
 
-// function ProtectedRouteGuard({ children }) {
-//   const token = useToken();
+function ProtectedRouteGuard({ children }) {
+  const token = useToken();
 
-//   if (!token) {
-//     return <Navigate to="/sign-in" />;
-//   }
+  if (!token) {
+    return <Navigate to="/" />;
+  }
 
-//   return <>{children}</>;
-// }
+  return <>{children}</>;
+}
