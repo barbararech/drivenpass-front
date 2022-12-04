@@ -1,7 +1,11 @@
 import styled from "styled-components";
 
-export default function NavigationButton({ active, children }) {
-  return <Button active={active}>{children}</Button>;
+export default function NavigationButton({ active, action, children }) {
+  return (
+    <Button active={active} onClick={() => action()}>
+      {children}
+    </Button>
+  );
 }
 
 const Button = styled.button`

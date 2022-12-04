@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-
+import { useContext } from "react";
 import styled from "styled-components";
 
 import {
@@ -8,13 +8,17 @@ import {
   FaRegFileAlt,
   FaWallet,
   FaWifi,
+  FaSignOutAlt,
 } from "react-icons/fa";
 import { IconContext } from "react-icons";
 
 import NavigationButton from "./NavigationButton";
 
+import UserContext from "../../../contexts/UserContext";
+
 export default function NavigationBar() {
   const location = useLocation();
+  const { logOut } = useContext(UserContext);
 
   function isActive(buttonPath) {
     return location.pathname === buttonPath;
@@ -57,6 +61,15 @@ export default function NavigationBar() {
             <span>Senhas de Wi-Fi</span>
           </NavigationButton>
         </Link>
+
+        <SignOut>
+          <Link to="/">
+            <NavigationButton active={isActive("/")} action={logOut}>
+              <FaSignOutAlt />
+              <span>Log Out</span>
+            </NavigationButton>
+          </Link>
+        </SignOut>
       </Container>
     </IconContext.Provider>
   );
@@ -83,5 +96,27 @@ const Container = styled.div`
     width: 100%;
     height: 80px;
     flex-direction: row;
+  }
+`;
+
+const SignOut = styled.div`
+  display: flex;
+  flex-direction: column;
+  background-color: #ddd;
+  width: 100px;
+  flex-shrink: 0;
+  justify-content: flex-end;
+  height: 27%;
+
+  > a {
+    text-decoration: none;
+  }
+
+  @media (max-width: 600px) {
+    height: 0;
+    width: 100%;
+    height: 80px;
+    flex-direction: row;
+    justify-content: flex-start;
   }
 `;
