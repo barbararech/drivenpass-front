@@ -12,7 +12,7 @@ import {
 } from "react-icons/fa";
 import { IconContext } from "react-icons";
 
-import NavigationButton from "./NavigationButton";
+import { NavigationButton, LogoutButton } from "./NavigationButton";
 
 import UserContext from "../../../contexts/UserContext";
 
@@ -64,10 +64,10 @@ export default function NavigationBar() {
 
         <SignOut>
           <Link to="/">
-            <NavigationButton active={isActive("/")} action={logOut}>
+            <LogoutButton active={isActive("/")} action={logOut}>
               <FaSignOutAlt />
               <span>Log Out</span>
-            </NavigationButton>
+            </LogoutButton>
           </Link>
         </SignOut>
       </Container>

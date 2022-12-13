@@ -1,6 +1,14 @@
 import styled from "styled-components";
 
-export default function NavigationButton({ active, action, children }) {
+export function NavigationButton({ active, children }) {
+  return (
+    <Button active={active}>
+      {children}
+    </Button>
+  );
+}
+
+export function LogoutButton({ active, action, children }) {
   return (
     <Button active={active} onClick={() => action()}>
       {children}
