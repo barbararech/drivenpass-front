@@ -14,29 +14,35 @@
 // import useSignIn from '../../hooks/api/useSignIn';
 
 // import logo from '../../assets/images/padlock.png'
+import Typography from "@material-ui/core/Typography";
+import styled from "styled-components";
+import RenderCategory from '../../components/NewEntry/categoriesList'
 
 export default function NewEntry() {
-  //   const [email, setEmail] = useState('');
-  //   const [password, setPassword] = useState('');
-
-  //   const { loadingSignIn, signIn } = useSignIn();
-
-  //   const { setUserData } = useContext(UserContext);
-
-  //   const navigate = useNavigate();
-
-  //   async function submit(event) {
-  //     event.preventDefault();
-
-  //     try {
-  //       const userData = await signIn(email, password);
-  //       setUserData(userData);
-  //       toast('Login realizado com sucesso!');
-  //       navigate('/dashboard');
-  //     } catch (err) {
-  //       toast('Não foi possível fazer o login!');
-  //     }
-  //   }
-
-  return "Em breve!";
+  return (
+    <Container>
+      <StyledTypography variant="h4">Novo registro</StyledTypography>
+      <span>Selecione a categoria</span>
+      <RenderCategory/>
+    </Container>
+  );
 }
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
+
+  span {
+    width: 564px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    color: #8e8e8e;
+  }
+`;
+
+const StyledTypography = styled(Typography)`
+  margin-bottom: 37px !important;
+  font-size: 32px;
+`;
