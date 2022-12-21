@@ -37,6 +37,7 @@ const CategoryContainer = styled.div`
   display: flex;
   flex-direction: row;
   overflow-y: hidden;
+  margin-bottom: 25px;
 `;
 
 const CategoryButton = styled.button`
@@ -45,17 +46,21 @@ const CategoryButton = styled.button`
   margin-right: 10px;
   margin-top: 20px;
   border-radius: 10px;
-  /* color: #5e25da; */
+  color: #5e25da;
   font-size: 15px;
   /* font-weight: 700; */
-  border: 1px solid #ddd;
+
+  /* border: 1px solid #5e25da; */
+  border: ${(props) =>
+    props.isActive === props.item ? "none" : "1px solid #5e25da;"};
   background-color: ${(props) =>
-    props.isActive === props.item ? "#ddd" : "#fff"};
+    props.isActive === props.item ? "#ddcdff" : "#fff"};
   pointer-events: ${(props) =>
     props.isActive === props.item ? "none" : "auto"};
   cursor: pointer;
 
   &:hover {
-    background-color: #ddd;
+    background-color: #ddcdff;
+    border: none;
   }
 `;

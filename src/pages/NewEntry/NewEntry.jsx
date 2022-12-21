@@ -24,6 +24,7 @@ export default function NewEntry() {
       <StyledTypography variant="h4">Novo registro</StyledTypography>
       <span>Selecione a categoria</span>
       <RenderCategory/>
+      {/* <span>Preencha o formulário</span> */}
     </Container>
   );
 }
